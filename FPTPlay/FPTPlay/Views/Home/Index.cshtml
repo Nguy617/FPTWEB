@@ -220,6 +220,47 @@
             color: #ffc107;
             font-size: 1.2rem;
         }
+        /* User dropdown giống ảnh */
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #111;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            z-index: 1055;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+            .user-dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: background 0.2s;
+            }
+
+                .user-dropdown-content a:hover {
+                    background: #222;
+                }
+
+                .user-dropdown-content a i {
+                    margin-right: 10px;
+                }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -249,9 +290,18 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center gap-3">
-                    <input class="form-control bg-dark text-white border-0" type="search" placeholder="Tìm kiếm..." style="max-width: 180px;" />
-                    <i class="fas fa-bell fa-lg text-white"></i>
-                    <i class="fas fa-user-circle fa-2x text-white"></i>
+                    <input id="searchInput" class="form-control bg-dark text-white border-0" type="search" placeholder="Tìm kiếm..." style="max-width: 180px;" />
+                    <i class="fas fa-bell fa-lg text-white" style="cursor: pointer;"></i>
+
+                    <!-- Icon người dùng + dropdown giống ảnh 2 -->
+                    <div class="user-dropdown">
+                        <i id="userIcon" class="fas fa-user-circle fa-2x text-white" style="cursor: pointer;"></i>
+                        <div id="userDropdownContent" class="user-dropdown-content">
+                            <a href="/Account/Login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                            <a href="/Favorites"><i class="fas fa-heart"></i> Yêu thích</a>
+                        </div>
+                    </div>
+
                     <a href="#" class="btn btn-danger btn-sm px-3">Mua gói</a>
                 </div>
             </div>
@@ -420,6 +470,48 @@
                 modal.querySelector('#modalQuality').textContent = this.dataset.quality;
             });
         });
+
+            // Tìm kiếm phim
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.trim().toLowerCase();
+            const allCards = document.querySelectorAll('.movie-card, .highlight-card');
+
+            allCards.forEach(card => {
+                const title = card.querySelector('.title-overlay, .highlight-title');
+                if (title) {
+                    const text = title.textContent.toLowerCase();
+                    if (query === '' || text.includes(query)) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                        card.style.height = 'auto';
+                    } else {
+                        card.style.display = 'none';
+                        card.style.opacity = '0';
+                        card.style.height = '0';
+                    }
+                }
+            });
+        });
+
+            // Toggle dropdown khi click icon user
+        const userIcon = document.getElementById('userIcon');
+        const dropdownContent = document.getElementById('userDropdownContent');
+
+        if (userIcon && dropdownContent) {
+            userIcon.addEventListener('click', function(e) {
+                e.stopPropagation(); // Ngăn click lan ra ngoài
+                const isVisible = dropdownContent.style.display === 'block';
+                dropdownContent.style.display = isVisible ? 'none' : 'block';
+            });
+
+            // Ẩn dropdown khi click ra ngoài
+            document.addEventListener('click', function(e) {
+                if (!userIcon.contains(e.target) && !dropdownContent.contains(e.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
