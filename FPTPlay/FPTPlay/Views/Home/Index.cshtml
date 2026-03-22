@@ -324,7 +324,8 @@
                      data-title="@movie.Title"
                      data-poster="@movie.PosterUrl"
                      data-desc="@(movie.Description ?? "Không có mô tả")"
-                     data-rating="5.0" data-year="2026" data-episodes="2/10" data-lang="Hàn Quốc" data-quality="FULLHD">
+                     data-rating="5.0" data-year="2026" data-episodes="2/10" data-lang="Hàn Quốc" data-quality="FULLHD"
+                     data-movie-id="@movie.Id">
                     <img loading="lazy" width="300" height="450" src="@movie.PosterUrl" alt="@movie.Title" onerror="this.src='/images/default-poster.jpg'" />
                     <div class="title-overlay">@movie.Title</div>
                     @if (movie.VideoCount > 0)
@@ -347,7 +348,8 @@
                      data-title="@movie.Title"
                      data-poster="@movie.PosterUrl"
                      data-desc="@(movie.Description ?? "Không có mô tả")"
-                     data-rating="5.0" data-year="2026" data-episodes="2/10" data-lang="Hàn Quốc" data-quality="FULLHD">
+                     data-rating="5.0" data-year="2026" data-episodes="2/10" data-lang="Hàn Quốc" data-quality="FULLHD"
+                     data-movie-id="@movie.Id">
                     <img loading="lazy" width="300" height="450" src="@movie.PosterUrl" alt="@movie.Title" onerror="this.src='/images/default-poster.jpg'" />
                     <div class="title-overlay">@movie.Title</div>
                 </div>
@@ -364,7 +366,8 @@
                          data-title="@movie.Title"
                          data-poster="@movie.PosterUrl"
                          data-desc="@(movie.Description ?? "Không có mô tả")"
-                         data-rating="3.3" data-year="2012" data-episodes="39/39" data-lang="Trung Quốc" data-quality="FULLHD">
+                         data-rating="3.3" data-year="2012" data-episodes="39/39" data-lang="Trung Quốc" data-quality="FULLHD"
+                         data-movie-id="@movie.Id">
                         <img loading="lazy" src="@movie.PosterUrl" alt="@movie.Title" onerror="this.src='/images/default-poster.jpg'" />
                         <div class="highlight-title">@movie.Title</div>
                     </div>
@@ -385,7 +388,8 @@
                          data-title="@match.Title"
                          data-poster="@match.PosterUrl"
                          data-desc="Ngoại hạng Anh • 2025/26 • 9 phút • Highlights trận đấu"
-                         data-rating="4.8" data-year="2026" data-episodes="" data-lang="Premier League" data-quality="4K">
+                         data-rating="4.8" data-year="2026" data-episodes="" data-lang="Premier League" data-quality="4K"
+                         data-movie-id="@match.Id">
                         <img loading="lazy" src="@match.PosterUrl" alt="@match.Title" onerror="this.src='/images/default-poster.jpg'" />
                         <div class="highlight-title" style="font-size: 0.95rem;">@match.Title</div>
                     </div>
@@ -406,7 +410,8 @@
                          data-title="@movie.Title"
                          data-poster="@movie.PosterUrl"
                          data-desc="@(movie.Description ?? "Phim Hollywood đỉnh cao, FULLHD, 4K")"
-                         data-rating="5.0" data-year="2010" data-episodes="1h49p" data-lang="Anh" data-quality="FULLHD">
+                         data-rating="5.0" data-year="2010" data-episodes="1h49p" data-lang="Anh" data-quality="FULLHD"
+                         data-movie-id="@movie.Id">
                         <img loading="lazy" src="@movie.PosterUrl" alt="@movie.Title" onerror="this.src='/images/default-poster.jpg'" />
                         <div class="highlight-title">@movie.Title</div>
                     </div>
@@ -443,7 +448,9 @@
                         </div>
                         <p id="modalDesc" class="lead"></p>
                         <div class="d-flex gap-4 mt-5">
-                            <button class="btn btn-watch btn-lg"><i class="fas fa-play me-2"></i>Xem ngay</button>
+                            <a id="watchNowBtn" class="btn btn-watch btn-lg" href="#">
+                                <i class="fas fa-play me-2"></i>Xem ngay
+                            </a>
                             <button class="btn btn-outline-light btn-lg"><i class="fas fa-heart me-2"></i>Yêu thích</button>
                             <button class="btn btn-outline-light btn-lg"><i class="fas fa-share-alt me-2"></i>Chia sẻ</button>
                         </div>
@@ -468,6 +475,11 @@
                 modal.querySelector('#modalEpisodes').textContent = this.dataset.episodes;
                 modal.querySelector('#modalLang').textContent = this.dataset.lang;
                 modal.querySelector('#modalQuality').textContent = this.dataset.quality;
+
+                // Lưu id phim và cập nhật link Xem ngay
+                const watchBtn = modal.querySelector('#watchNowBtn');
+                const movieId = this.dataset.movieId || '0';
+                watchBtn.href = '/Movies/Details/' + movieId;
             });
         });
 

@@ -207,3 +207,47 @@ INNER JOIN Categories c ON m.CategoryId = c.Id
 WHERE c.Slug IN ('the-thao', 'dien-anh-au-my-dinh-cao')
 ORDER BY m.CreatedDate DESC;
 GO
+
+USE FPTPlayDemo;
+GO
+
+-- Thêm cột VideoUrl nếu chưa có (để lưu đường dẫn video)
+IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id = OBJECT_ID('Movies') AND name = 'VideoUrl')
+BEGIN
+    ALTER TABLE Movies
+    ADD VideoUrl NVARCHAR(500) NULL;
+    PRINT 'Đã thêm cột VideoUrl vào bảng Movies.';
+END
+ELSE
+BEGIN
+    PRINT 'Cột VideoUrl đã tồn tại.';
+END
+GO
+
+-- (Tùy chọn) Thêm cột Duration nếu chưa có (thời lượng phim tính bằng phút)
+IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id = OBJECT_ID('Movies') AND name = 'Duration')
+BEGIN
+    ALTER TABLE Movies
+    ADD Duration INT NULL;
+    PRINT 'Đã thêm cột Duration vào bảng Movies.';
+END
+GO
+
+-- Cập nhật VideoUrl cho vài phim mẫu để test (thay đường dẫn thật của bạn)
+UPDATE Movies
+SET VideoUrl = '/videos/thien-duong-mau.mp4', Duration = 120
+WHERE Title = N'Thiên Đường Máu';
+
+UPDATE Movies
+SET VideoUrl = '/videos/me-cun-bo-meo.mp4', Duration = 95
+WHERE Title = N'Mẹ Cún Bố Mèo';
+
+UPDATE Movies
+SET VideoUrl = '/videos/cuc-han.mp4', Duration = 45
+WHERE Title = N'Cực Hạn';
+
+-- Kiểm tra kết quả
+SELECT Id, Title, VideoUrl, Duration
+FROM Movies
+WHERE VideoUrl IS NOT NULL;
+GO
