@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FPTPlay")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99c8e7661b076e7e5f1738c86e79cee8dc464137")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+487d711ca3a8ccb92df7187f8b28758ab222d028")]
 [assembly: System.Reflection.AssemblyProductAttribute("FPTPlay")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FPTPlay")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
