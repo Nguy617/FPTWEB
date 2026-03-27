@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "U5BjAmdjGJMs0NXy0Joc3TfhWCxiZl+yY2Jy9xCmzBU=",
+  "Hash": "4D7JvEK/Rekqo7z065efuhdAY7I3koaD43il0yqC8D8=",
   "Source": "FPTPlay",
   "BasePath": "_content/FPTPlay",
   "Mode": "Default",
@@ -1128,6 +1128,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\posters\\hau-cung.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Downloads\\FPTWEB\\FPTPlay\\FPTPlay\\wwwroot\\images\\posters\\hoa-ngu.jpg",
+      "SourceId": "FPTPlay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Downloads\\FPTWEB\\FPTPlay\\FPTPlay\\wwwroot\\",
+      "BasePath": "_content/FPTPlay",
+      "RelativePath": "images/posters/hoa-ngu#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z3388kw6lh",
+      "Integrity": "vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\posters\\hoa-ngu.jpg"
     },
     {
       "Identity": "C:\\Users\\PC\\Downloads\\FPTWEB\\FPTPlay\\FPTPlay\\wwwroot\\images\\posters\\ho-so-trinh-sat.jpg",
@@ -7889,6 +7910,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-+S3M10TvPMF7ocyENNvAx31V56YqHtHyvpD03ygq51U="
+        }
+      ]
+    },
+    {
+      "Route": "images/posters/hoa-ngu.jpg",
+      "AssetFile": "C:\\Users\\PC\\Downloads\\FPTWEB\\FPTPlay\\FPTPlay\\wwwroot\\images\\posters\\hoa-ngu.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 26 Mar 2026 04:13:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0="
+        }
+      ]
+    },
+    {
+      "Route": "images/posters/hoa-ngu.z3388kw6lh.jpg",
+      "AssetFile": "C:\\Users\\PC\\Downloads\\FPTWEB\\FPTPlay\\FPTPlay\\wwwroot\\images\\posters\\hoa-ngu.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 26 Mar 2026 04:13:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z3388kw6lh"
+        },
+        {
+          "Name": "label",
+          "Value": "images/posters/hoa-ngu.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0="
         }
       ]
     },

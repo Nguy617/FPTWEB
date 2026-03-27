@@ -648,6 +648,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-VC9KHhrNnMOr2CG80ukhoju\u002B2HSUFcPH1lx2KXOo/zE="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"11111"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022VC9KHhrNnMOr2CG80ukhoju\u002B2HSUFcPH1lx2KXOo/zE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 26 Mar 2026 03:01:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FPTPlay/images/posters/hoa-ngu.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\posters\hoa-ngu.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8\u002BQd0Ns0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"10996"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8\u002BQd0Ns0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 26 Mar 2026 04:13:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FPTPlay/images/posters/hoa-ngu.z3388kw6lh.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\posters\hoa-ngu.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"z3388kw6lh"},{"Name":"integrity","Value":"sha256-vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8\u002BQd0Ns0="},{"Name":"label","Value":"_content/FPTPlay/images/posters/hoa-ngu.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10996"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8\u002BQd0Ns0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 26 Mar 2026 04:13:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FPTPlay/images/posters/htv7-hd.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\posters\htv7-hd.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

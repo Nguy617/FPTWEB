@@ -4431,6 +4431,88 @@
       ]
     },
     {
+      "Route": "images/posters/hoa-ngu.jpg",
+      "AssetFile": "images/posters/hoa-ngu.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 26 Mar 2026 04:13:27 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0="
+        }
+      ]
+    },
+    {
+      "Route": "images/posters/hoa-ngu.z3388kw6lh.jpg",
+      "AssetFile": "images/posters/hoa-ngu.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 26 Mar 2026 04:13:27 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z3388kw6lh"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vxkIQAYgBCIfX/z3CMu3hAyKjtJoVs47BfO8+Qd0Ns0="
+        },
+        {
+          "Name": "label",
+          "Value": "images/posters/hoa-ngu.jpg"
+        }
+      ]
+    },
+    {
       "Route": "images/posters/htv7-hd.jpg",
       "AssetFile": "images/posters/htv7-hd.jpg",
       "Selectors": [],

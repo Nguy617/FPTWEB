@@ -49,6 +49,7 @@ wwwroot\images\posters\gtv.jpg
 wwwroot\images\posters\hanh-phuc.jpg
 wwwroot\images\posters\han-so.jpg
 wwwroot\images\posters\hau-cung.jpg
+wwwroot\images\posters\hoa-ngu.jpg
 wwwroot\images\posters\ho-so-trinh-sat.jpg
 wwwroot\images\posters\ho-ve.jpg
 wwwroot\images\posters\htv7-hd.jpg
