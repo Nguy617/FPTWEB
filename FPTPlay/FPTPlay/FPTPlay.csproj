@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Categories\" />
+    <Folder Include="Areas\Admin\Views\Movies\" />
     <Folder Include="wwwroot\videos\" />
   </ItemGroup>
 

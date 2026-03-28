@@ -1,0 +1,81 @@
+﻿@model List<FPTPlay.Models.User>
+@{
+    ViewData["Title"] = "Quản lý Người dùng";    
+    Layout = "_AdminLayout";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white d-flex justify-content-between">
+        <h5 class="mb-0">👥 Danh sách người dùng</h5>
+        <a asp-action="Create" method="post" class="btn btn-light btn-sm">+ Thêm mới</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>                    
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>SĐT</th>                    
+                    <th>Role</th>
+                    <th>Trạng thái</th>
+                    <th width="170">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@u.Id</td>
+                        
+                        <td>@u.FullName</td>
+
+                        <td>@u.Email</td>
+
+                        <td>@u.Mobile</td>
+
+                        <td>
+                            <span class="badge bg-@(u.Role == "Admin" ? "danger" : "secondary")">
+                                @u.Role
+                            </span>
+                        </td>
+
+                        <td>
+                            @if (u.IsActive)
+                            {
+                                <span class="badge bg-success">Hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Khoá</span>
+                            }
+                        </td>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@u.Id"
+                               class="btn btn-warning btn-sm">✏ Sửa</a>                           
+
+                            @if (u.Role != "Admin")
+                            {
+                                <form asp-action="Delete" method="post" style="display:inline">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@u.Id" />
+
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Bạn có chắc muốn xóa user này?')">
+                                            🗑Xóa
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Admin</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

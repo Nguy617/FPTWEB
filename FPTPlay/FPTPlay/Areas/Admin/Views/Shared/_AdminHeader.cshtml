@@ -1,0 +1,24 @@
+﻿<div class="header d-flex justify-content-between align-items-center mb-4">
+
+    <h4>@ViewBag.Title</h4>
+
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle"
+                data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle me-2"></i>
+            @User.Identity?.Name
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<style>
+    .header {
+        border-bottom: 1px solid #373a40;
+        padding-bottom: 10px;
+    }
+</style>

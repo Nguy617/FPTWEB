@@ -1,7 +1,23 @@
 using Microsoft.EntityFrameworkCore;                    // ← Bắt buộc cho UseSqlServer
-using FPTPlay.Data;                                     // ← Namespace của FPTPlayContext
+using FPTPlay.Data;
+using FPTPlay.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Globalization;                                     // ← Namespace của FPTPlayContext
 
 var builder = WebApplication.CreateBuilder(args);
+
+//format global toàn site - Tất cả date = chuẩn VN
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("vi-VN");
+
+//Cấu hình Cookie Authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromHours(12);
+        options.SlidingExpiration = true;
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -18,6 +34,9 @@ builder.Services.AddDbContext<FPTPlayContext>(options =>
     options.UseSqlServer (
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+
+// 🔥 Đăng ký Service
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 
@@ -36,11 +55,18 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseSession();
 
+// 🔥 QUAN TRỌNG: phải có Authentication trước Authorization
+app.UseAuthentication();
 app.UseAuthorization();
 
+//Đăng ký Area
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
+// Route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

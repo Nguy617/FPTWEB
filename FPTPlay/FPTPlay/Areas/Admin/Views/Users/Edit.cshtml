@@ -1,0 +1,90 @@
+﻿@model FPTPlay.Admin.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Sửa User";
+    Layout = "_AdminLayout";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-warning">
+        <h5>✏ Chỉnh sửa người dùng</h5>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <!-- FULLNAME -->
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <!-- MOBILE -->
+            <div class="mb-3">
+                <label asp-for="Mobile" class="form-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="mb-3">
+                <label asp-for="NewPassword" class="form-label"></label>
+                <input asp-for="NewPassword" type="password"
+                       class="form-control"
+                       placeholder="Để trống nếu không đổi" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+
+            <!-- ROLE -->
+            <div class="mb-3">
+                    <label asp-for="Role" class="form-label"></label>
+
+                    @if (Model.Role == "Admin")
+                    {
+                        <!-- 🔒 Không cho sửa -->
+                        <input type="hidden" asp-for="Role" />
+                        <input value="Admin" class="form-control" disabled /> 
+                    }
+                    else
+                    {
+                        <!-- ✅ Cho sửa -->
+                        <select asp-for="Role" class="form-select">                            
+                            <option value="Admin">Admin</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                    }
+
+                    <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <!-- ACTIVE -->
+            <div class="form-check mb-3">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+            </div>
+
+            <!-- BUTTON -->
+            <button class="btn btn-success">
+                <i class="fas fa-save"></i> Cập nhật
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Quay lại
+            </a>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

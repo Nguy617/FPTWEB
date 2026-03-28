@@ -1,0 +1,90 @@
+﻿@{    
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<div class="sidebar">
+    <div class="sidebar-logo">
+        <i class="fas fa-play-circle"></i>
+        <span>Admin Panel</span>
+    </div>
+
+    <div class="nav flex-column">
+        
+        <a class ="nav-link @(currentController == "Dashboard" && currentAction == "Index" ? "active" : "")"></aclass>           
+            <i class="fas fa-tachometer-alt"></i> Tổng quan
+        </a>
+
+        <a class="nav-link @(currentController == "Categories" ? "active" : "")"
+           asp-area="Admin" asp-controller="Categories" asp-action="Index">
+            <i class="fas fa-list"></i> Danh mục
+        </a>
+
+        <a class="nav-link @(currentController == "Movies" ? "active" : "")"
+           asp-area="Admin" asp-controller="Movies" asp-action="Index">
+            <i class="fas fa-film"></i> Quản lý phim
+        </a>
+
+        <a class="nav-link @(currentController == "Users" ? "active" : "")"
+           asp-area="Admin" asp-controller="Users" asp-action="Index">
+            <i class="fas fa-users"></i> Người dùng
+        </a>
+
+        <a href="/" class="nav-link mt-4 text-warning">
+            <i class="fas fa-home"></i> Về trang chủ
+        </a>
+
+        <!-- Logout chuẩn -->
+        <form asp-area="" form asp-controller="Account" asp-action="Logout" method="post">
+            <button class="nav-link btn btn-link text-start text-white">
+                <i class="fas fa-sign-out-alt"></i> Đăng xuất
+            </button>
+        </form>        
+
+    </div>
+</div>
+
+<style>
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        background: #25262b;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+    }
+
+    .sidebar-logo {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
+    .sidebar-logo i {
+        color: #f15a24;
+        font-size: 2rem;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    .sidebar-logo span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        vertical-align: middle;
+    }
+
+    .nav-link {
+        color: #adb5bd;
+        padding: 12px 20px;
+        margin: 4px 15px;
+        border-radius: 8px;
+    }
+
+    .nav-link.active {
+        background: #f15a24;
+        color: #fff;
+    }
+
+</style>
